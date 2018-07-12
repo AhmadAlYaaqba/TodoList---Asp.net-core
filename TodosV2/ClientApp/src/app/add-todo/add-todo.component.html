@@ -1,0 +1,21 @@
+<br />
+<br />
+<div class="jumbotron">
+  <h1 class="display-4">Add Todo</h1>
+  <div *ngIf="error != undefined" class="alert alert-danger" role="alert">
+      {{error}}
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Title</label>
+    <input [(ngModel)]="title" matTooltip="Enter title" matTooltipPosition="right" type="text" class="form-control" placeholder="Title">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Date & Time</label>
+    <input [(ngModel)]="Date_Time" matTooltip="Enter Date & Time" matTooltipPosition="right" type="datetime-local" class="form-control" id="Enter Date & Time">
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Assigne to</label>
+    <input [(ngModel)]="assinedTo" type="text" class="form-control" placeholder="Assined To">
+  </div>
+  <div><button (click)="onAdd()" type="submit" class="btn btn-success">Add Todo</button></div>
+</div>

@@ -1,0 +1,33 @@
+<h1>Todos</h1>
+
+<p>test display all todos.</p>
+
+<p *ngIf="!Todos"><em>Loading...</em></p>
+<h5><a [routerLink]='["/addtodo"]'>
+   Add new Todo
+</a></h5>
+<table class='table table-striped' *ngIf="Todos">
+  <thead class="thead-dark">
+    <tr>
+      <th>Title</th>
+      <th>Status</th>
+      <th>Start date</th>
+      <th>Created At</th>
+      <th>Assined to</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let Todo of Todos">
+      <td>{{ Todo.title }}<br /> <button (click)="onUpdateTitle(Todo.internalId)" type="button" class="btn btn-outline-dark btn-sm"> edit</button></td>
+      <td *ngIf="Todo.status"><button type="button" class="btn btn-outline-success">Completed</button></td>
+      <td *ngIf="!Todo.status"><button type="button" class="btn btn-outline-info">On progress</button></td>
+      <td>{{ Todo.start_Date }}</td>
+      <td>{{ Todo.createdOn }}</td>
+      <td>{{ Todo.assinedTo }} <br /> <button (click)="onUpdateAssign(Todo.internalId)" type="button" class="btn btn-outline-dark btn-sm"> edit</button></td>
+      <td> <button (click)="OnComplete(Todo.internalId,Todo.status)" class="btn btn-warning">Check</button> </td>
+      <td> <button (click)="OnDelete(Todo.internalId)" class="btn btn-danger">Delete</button> </td>
+    </tr>
+  </tbody>
+</table>
